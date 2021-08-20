@@ -5,7 +5,7 @@
 import processing.serial.*;
 Serial port;  // Create object from Serial class
 
-int val;
+int val = 2;
 int tapNum = 0;
 int stretchNum = 0;
 boolean newData = false;
@@ -26,6 +26,7 @@ void draw()
   { // if data is available
     // read it and store it in val
     val = port.read();
+    println(val);
     newData = true;
   }
   
@@ -43,7 +44,9 @@ void draw()
       
       textSize(48);
       textAlign(LEFT, TOP);
-      text(tapNum, 500, 300);   
+      text(tapNum, 500, 300);  
+      
+      val = 2;
     }
     if(val == 1)
     {
@@ -58,6 +61,8 @@ void draw()
       textSize(48);
       textAlign(LEFT, TOP);
       text(stretchNum, 500, 300);
+      
+      val = 2;
     }
   }
 }
