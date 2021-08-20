@@ -42,11 +42,47 @@ void draw()
   { // if data is available
     // read it and store it in area
     areaLabel = port.read();      
-
-    // map to pressed area
-    pressArea(areaLabel);
+    println(areaLabel);
   }
-  
+  // map to pressed area
+  pressArea(areaLabel);
+  //pressArea(2);
+}
+
+void pressArea(int label) 
+{ 
+  if (label == 0)
+  {
+    noPress();
+  }
+  if (label == 1)
+  {
+    fill(102, 210, 214); // cyan
+    strokeWeight(4);
+    rect(x, y, w, h);
+  }
+  if (label == 2)
+  {
+    fill(251, 199, 64); // gold
+    strokeWeight(4);
+    rect(x+w, y, w, h);
+  }
+  if (label == 3)
+  {
+    fill(189, 151, 203); // lilac
+    strokeWeight(4);
+    rect(x+2*w, y, w, h);
+  }
+  if (label == 4)
+  {
+    fill(229, 105, 151); // hot pink
+    strokeWeight(4);
+    rect(x+3*w, y, w, h);
+  }
+}
+
+void noPress()
+{
   // area 1
   fill(210, 251, 164);
   strokeWeight(2);
@@ -72,36 +108,6 @@ void draw()
   textSize(14);
   fill(50);
   text("Area 4", x+3*w+10, y-10);
-  
-  pressArea(2);
-}
-
-void pressArea(int label) 
-{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-  if (label == 1)
-  {
-    fill(102, 210, 214); // cyan
-    strokeWeight(4);
-    rect(x, y, w, h);
-  }
-  if (label == 2)
-  {
-    fill(251, 199, 64); // gold
-    strokeWeight(4);
-    rect(x+w, y, w, h);
-  }
-  if (label == 3)
-  {
-    fill(189, 151, 203); // lilac
-    strokeWeight(4);
-    rect(x+2*w, y, w, h);
-  }
-  if (label == 4)
-  {
-    fill(229, 105, 151); // hot pink
-    strokeWeight(4);
-    rect(x+3*w, y, w, h);
-  }
 }
 
 void setPressText(int level)
